@@ -35,8 +35,10 @@ EXPOSE 8080
 # expose port for https
 EXPOSE 8090
 
-# run supervisor
+# add docker-start
 ################
+ADD docker-start /usr/local/bin/
+RUN chmod +x /usr/local/bin/docker-start
 
-# run supervisor
-CMD ["supervisord", "-c", "/etc/supervisor.conf", "-n"]
+# run docker-start
+CMD ["docker-start"]
